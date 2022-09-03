@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./矢量图.css">
+    <link rel="stylesheet" href="../font_baw0ajtjfud/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .tar{
+            position: relative;
+        }
+        .box {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .container {
+            width: calc(100%/4);
+            height: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container:nth-child(1) {
+            background-color: #dec387;
+        }
+        .container:nth-child(2) {
+            background-color: #de8797;
+        }
+        .container:nth-child(3) {
+            background-color: #87aade;
+        }
+        .container:nth-child(4) {
+            background-color: #c5de87;
+        }
+        .target{
+            width: 150px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            z-index: 1;    
+        }
+        .cilcre{
+            width: 150px;
+            height: 50px;
+            position: relative;
+            border-radius: 50px;
+        }
+        .box1 .cilcre:nth-child(2){
+            background-color: #af4c4c;
+            box-shadow: 0px 2px 8px 3px inset;;
+        }
+        .box2 .cilcre:nth-child(2){
+            border: 1px solid #fff;
+            background-color: transparent;
+        }
+        .box3 .cilcre:nth-child(2){
+            background-color: #2e394d;
+        }
+        .box4 .cilcre:nth-child(2){
+            background-color: #2e394d;
+        }
+        .cilcre::before{
+            content: '';
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 1px;
+            top: 3px;
+            transition: all .3s;
+        }
+        .box3 .cilcre:nth-child(2):before{
+            content: '\e62f';
+            font-family: 'iconfont';
+            text-align: center; 
+            color: #fff;
+            font-size: 36px;
+            background-color:greenyellow ;
+        }
+        .box4 .cilcre:nth-child(2):before{
+            border: 2px solid #88cf8f;
+            background-color: #2e394d;
+            top: 0;
+        }
+        .target:checked+.cilcre::before{
+            left: 100px;
+        }
+         @keyframes c4 {
+            0%{
+                left: 0;
+            }
+            25%{
+                left: 0;
+            }
+            50%{
+                left: 10px;;
+            }
+            100%{
+                left: 100px;
+            }
+         }
+         .t4:checked{
+            transform: rotate(90deg);
+         }
+        .target:checked+.c4::before{
+            animation-name: c4;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
+        }
+        .target:checked+.c3::before{
+            transform: rotate(360deg);
+            content: '\f00b3';
+            background-color: red;
+            font-family: 'iconfont';
+        }
+        .target:checked+.c1{
+            background-color: green;
+            transition: all .3s;
+        }
+        .target:checked+.c2{
+            transition: all .3s;
+        }
+        .target:checked+.c3 {
+            transition: all .3s;
+        }
+        .target:checked+.c4 {
+            transform: rotate(90deg);
+            transition: all .3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="container box1">
+            <div class="tar">
+                <input type="checkbox" name="sex" id="male" class="target" />
+                <div class="cilcre c1"></div>
+            </div>
+        </div>
+        
+        <div class="container box2">
+            <div class="tar">
+                <input type="checkbox" class="target">
+                <div class="cilcre c2"></div>
+            </div>
+        </div>
+        <div class="container box3">
+            <div class="tar">
+                <input type="checkbox" class="target">
+                <div class="cilcre c3"></div>
+            </div>
+        </div>
+        <div class="container box4">
+            <div class="tar">
+                <input type="checkbox" class="target t4">
+                <div class="cilcre c4"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

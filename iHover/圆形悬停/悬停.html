@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.js"></script>
+    <script src="./悬停.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .c1{
+            display: inline-block;
+            height: 100%;
+            transform:  rotate(-45deg);
+            transition: all .3s;
+            z-index: 9;
+        }
+        .c2{
+            display: inline-block;
+            height: 100%;
+            position: absolute;
+            transition: all .4s;
+            left: 0;
+            z-index: 9;
+        }
+        .c3{
+            display: inline-block;
+            height: 100%;
+            position: absolute;
+            transition: all .4s;
+            left: 0;
+            z-index: 9;
+        }
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+
+        .img {
+            width: 210px;
+            height: 210px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-top: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .circle {
+            width: 223px;
+            height: 223px;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle1 {
+            width: 226px;
+            height: 226px;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle2 {
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        .circle3 {
+            width: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .circle:hover .spinner{
+            transform: rotate(180deg);
+        }
+        .circle1:hover .c1{
+            transform: rotate(0);
+        }
+
+        .spinner {
+            width: 199px;
+            height: 199px;
+            border: 10px solid #ecab18;
+            border-bottom-color: #1ad280;
+            border-right-color: #1ad280;
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            z-index: 1;
+            transition: all 1s;
+        }
+        .spinner1 {
+            width: 199px;
+            height: 199px;
+            border: 10px solid #d4d4d3cc;
+            border-radius: 50%;
+            position: absolute;
+            left: 0px;
+            z-index: 1;
+            transition: all 1s;
+
+        }
+        .mask{
+            width: 100%;
+            height: 100%;
+            flex-wrap: wrap;
+            display: none;
+            background-color:rgb(0 0 0 / 56%);
+            position: absolute;
+            top: 0;
+            transition: all 1s;
+        }
+         h3{
+            color: #fff;
+            font-size: 16px;
+            margin-top: 53px;
+        }
+         p{
+            margin-top: 30px;
+            font-size: 16px;
+            color: #fff;
+            border-top: 1px solid rgb(255, 255, 255);
+            padding-top: 20px;
+        }
+        .mask1{
+            width: 220px;
+            height: 220px;
+            flex-wrap: wrap;
+            border-radius: 50%;
+            background-color:rgb(0 0 0 / 56%);
+            position: absolute;
+            top: 0;
+            left: 405px;
+            transition: all 1s;
+        }
+        .mask2{
+            width: 220px;
+            height: 220px;
+            flex-wrap: wrap;
+            border-radius: 50%;
+            background-color:rgba(0, 0, 0, 0.695);
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            left:-220px ;
+            transition: all .5s;
+        }
+        .mask3{
+            width: 220px;
+            height: 220px;
+            flex-wrap: wrap;
+            border-radius: 50%;
+            background-color:rgba(0, 0, 0, 0.695);
+            position: absolute;
+            top: 0;
+            left:0 ;
+            transform: scale(0.5);
+            transition: all .5s;
+        }
+        .r1{
+            width: 300px;
+            position: relative;
+        }
+        .r2{
+            width: 300px;
+            position: relative;
+        }
+        .rectangle{
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border: 10px solid rgb(173, 173, 173);
+        }
+        .rectangle img{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+        .rectangle1{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border: 10px solid rgb(173, 173, 173);
+        }
+        .rectangle1 img{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+        }
+        .info{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 10px;
+            left: 9px;
+            overflow: hidden;
+            display: none;
+            background-color: #0000006e;
+        }
+        .info1{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            overflow: hidden;
+            /* display: none; */
+            transform: rotate(-90deg);
+            transform-origin: bottom left;
+            transition: all 1s;
+            background-color: #0000006e;
+        }
+        .info h3{
+            padding: 10px;
+            width: 100%;
+            position: relative;
+            right: 320px;
+            background-color: #000;
+            transition: all .5s;
+        }
+        .info p{
+            padding: 10px;
+            width: 100%;
+            position: relative;
+            border-top: none;
+            left: 320px;
+            transition: all .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>悬停效果1</h2>
+    <div class="container">
+        <div class="circle">
+            <a href="#">
+                <div class="spinner"></div>
+                <div class="img">
+                    <img src="./2.jpg" alt="">
+                    <div class="mask">
+                        <h3>Heading here</h3>
+                        <p>Description goes here</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="circle1">
+            <a href="#" class="c1">
+                <div class="spinner1"></div>
+                <div class="img">
+                    <img src="./2.jpg" alt="">
+                </div>
+            </a>
+            <div class="mask1">
+                <h3>Heading here</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+        <div class="circle2">
+            <a href="#" class="c2">
+                <div class="spinner1"></div>
+                <div class="img">
+                    <img src="./2.jpg" alt="">
+                </div>
+            </a>
+            <div class="mask2">
+                <h3>Heading here</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+        <div class="circle3">
+            <a href="#" class="c3">
+                <div class="spinner1"></div>
+                <div class="img">
+                    <img src="./2.jpg" alt="">
+                </div>
+            </a>
+            <div class="mask3">
+                <h3>Heading here</h3>
+                <p>Description goes here</p>
+            </div>
+        </div>
+    </div>
+    <h2>悬停效果2</h2>
+    <div class="container">
+        <a href="#" class="r1">
+            <div class="rectangle">
+                <img src="./2.jpg" alt="">
+            </div>
+            <div class="info">
+                <h3>Heading here</h3>
+                <p>Description goes here</p>
+            </div>
+        </a>
+        <a href="#" class="r2">
+            <div class="rectangle1">
+                <img src="./2.jpg" alt="">
+                <div class="info1">
+                    <h3>Heading here</h3>
+                    <p>Description goes here</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+
+</html>
