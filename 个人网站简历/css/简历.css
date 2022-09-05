@@ -190,11 +190,6 @@ main .skill hr {
   margin-bottom: 30px;
   border: 0;
 }
-main .skill ul.list {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
 main .skill ul.list li {
   text-align: center;
 }
@@ -240,7 +235,7 @@ main .self-introduction .container hr {
   border: 0;
 }
 main .self-introduction .container .box {
-  width: 516px;
+  width: 446px;
   position: relative;
   height: 180px;
   overflow: hidden;
@@ -248,7 +243,7 @@ main .self-introduction .container .box {
   display: inline-block;
 }
 main .self-introduction .container .box .content {
-  width: 1869px;
+  width: 1380px;
   height: 180px;
   display: flex;
   position: absolute;
@@ -256,15 +251,17 @@ main .self-introduction .container .box .content {
   transition: all 0.5s;
 }
 main .self-introduction .container .box .content .text {
+  width: 1000px;
   display: inline-block;
   text-align: center;
-  margin-left: 60px;
+  margin-left: 30px;
 }
 main .self-introduction .container .box .content .text p {
+  display: block;
   font-weight: 500;
   margin: 30px 0;
   font-size: 16px;
-  padding: 0 15px;
+  padding: 0 7px;
   line-height: 40px;
   color: #ddd;
 }
