@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.2.0/css/all.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a9, #00001a);
+        }
+
+        ul {
+            width: 350px;
+            height: 60px;
+            display: flex;
+            position: relative;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        ul li.list {
+            list-style: none;
+            position: relative;
+        }
+
+        ul li.list i {
+            font-size: 24px;
+        }
+
+        ul li.list .text {
+            position: absolute;
+            left: -12px;
+            color: #fff;
+            font-weight: 400;
+            font-size: 0.75em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(15px);
+            background: #2196f3;
+            padding: 2px 7px;
+            border-radius: 12px;
+        }
+        ul li.list .test{
+            opacity: 1;
+            transform: translateY(35px);
+        }
+        ul .circle {
+            position: absolute;
+            top: -32px;
+            width: 62px;
+            height: 62px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        ul .circle::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: -28px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: 15px 18px #fff;
+        }
+
+        ul .circle::after {
+            content: "";
+            position: absolute;
+            top: 5px;
+            right: -28px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border-radius: 50%;
+            box-shadow: -15px 18px #fff;
+        }
+        ul .active{
+            transform: translateY(-40px);
+            transition: all .8s;
+            color: #2196f3;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="list active">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="text test">Home</span>
+        </li>
+        <li class="list">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+            <span class="text">Profile</span>
+        </li>
+        <li class="list">
+            <i class="fa fa-archive" aria-hidden="true"></i>
+            <span class="text">Megss</span>
+        </li>
+        <li class="list">
+            <i class="fa fa-clone" aria-hidden="true"></i>
+            <span class="text">photos</span>
+        </li>
+        <li class="list">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <span class="text">install</span>
+        </li>
+        <div class="circle"></div>
+    </ul>
+</body>
+<script>
+    window.onload=function(){
+        $('.circle').css('left','20px')
+    $('ul li').each(function (e,i) {
+       $(this).click(function () {
+        if (e==0) {
+            $('.circle').css('left','20px');
+            $(this).addClass('active').css('color','#2196f3').siblings().removeClass('active').css('color','#000')
+            $(this).children('span').addClass('test').siblings().children('span').removeClass('test')
+            $(this).siblings().children('span').removeClass('test')
+        }else{
+            $('.circle').css('left',60*e+25+'px')
+            $(this).addClass('active').css('color','#2196f3').siblings().removeClass('active').css('color','#000')
+            $(this).children('span').addClass('test')
+            $(this).siblings().children().removeClass('test')
+        }
+       })
+    })
+    }
+</script>
+</html>

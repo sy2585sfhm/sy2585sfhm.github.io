@@ -22,59 +22,53 @@ $(document).ready(function () {
     audio.src = music[0].mp3
     var num = 0;
     var sum = 0;
-    var jd1
     var m = 0;
     var s = 0;
     var time;
+    function init() {
+        $('.jp-playlist ul').html('')
+        $('.jp-playlist ul').append(`<li>${music[sum].title}</li>
+        <li>${music[sum].singer}</li>`);
+        time = setInterval(function () {
+            jd1 = audio.currentTime / audio.duration * 350
+            m = Math.floor((audio.currentTime) / 60)
+            m = m < 10 ? '0' + m : m;
+            s = Math.floor((audio.currentTime) % 60)
+            s = s < 10 ? '0' + s : s;
+            if (jd1 < 350) {
+                bar.style.width = jd1 + 'PX'
+                $('.current').html(m + ':' + s)
+            } else {
+                clearInterval(time)
+                $('.jp-play').removeClass('icon-pause').addClass('icon-play')
+            }
+        }, 1000);
+    }
+    init()
     $('.jp-play').click(function () {
         num++;
         if (num % 2 !== 0) {
             $('.jp-play').addClass('icon-pause').removeClass('icon-play')
+            init()
             audio.play();
-            time = setInterval(function () {
-                jd1 = audio.currentTime / audio.duration * 350
-                m = Math.floor((audio.currentTime) / 60)
-                m = m < 10 ? '0' + m : m;
-                s = Math.floor((audio.currentTime) % 60)
-                s = s < 10 ? '0' + s : s;
-                if (jd1 < 350) {
-                    bar.style.width = jd1 + 'PX'
-                    $('.current').html(m + ':' + s)
-                } else {
-                    clearInterval(time)
-                    $('.jp-play').removeClass('icon-pause').addClass('icon-play')
-                }
-            }, 1000);
-        }
-        if (num % 2 == 0) {
+        } else {
             $('.jp-play').removeClass('icon-pause').addClass('icon-play')
+            init()
             audio.pause();
-            clearInterval(time)
+            clearInterval(time) 
         }
     })
     $('.icon-previous').click(function () {
-        if (sum == 0) {
+        sum--;
+        if (sum < 0) {
             alert('前面没歌了');
+            sum=0
             $('.jp-play').addClass('icon-pause').removeClass('icon-play')
             audio.play();
-            time = setInterval(function () {
-                jd1 = audio.currentTime / audio.duration * 350
-                m = Math.floor((audio.currentTime) / 60)
-                m = m < 10 ? '0' + m : m;
-                s = Math.floor((audio.currentTime) % 60)
-                s = s < 10 ? '0' + s : s;
-                if (jd1 < 350) {
-                    bar.style.width = jd1 + 'PX'
-                    $('.current').html(m + ':' + s);
-                } else {
-                    $('.jp-play').removeClass('icon-pause').addClass('icon-play')
-                    clearInterval(time)
-                }
-            }, 1000);
-        }
-        sum--;
-        if (sum<0) {
-            sum=0
+           init()
+        } else {
+            audio.src = music[sum].mp3;
+            init()
         }
     })
     $('.icon-next').click(function () {
@@ -82,27 +76,15 @@ $(document).ready(function () {
         if (sum < 3) {
             audio.src = music[sum].mp3;
             $('.jp-play').addClass('icon-pause').removeClass('icon-play')
-            time = setInterval(function () {
-                jd1 = audio.currentTime / audio.duration * 350
-                m = Math.floor((audio.currentTime) / 60)
-                m = m < 10 ? '0' + m : m;
-                s = Math.floor((audio.currentTime) % 60)
-                s = s < 10 ? '0' + s : s;
-                if (jd1 < 350) {
-                    bar.style.width = jd1 + 'PX'
-                    $('.current').html(m + ':' + s)
-                } else {
-                    clearInterval(time)
-                    $('.jp-play').removeClass('icon-pause').addClass('icon-play')
-                }
-            }, 1000);
+           init()
             audio.play();
         } else {
+            sum = 2;
+            init()
             alert('最后一首了');
         }
     })
     $('.jp-volume-bar-value').mousedown(function () { 
-        console.log(12);
         volume.onmousemove=function (e) {
             let x = Math.floor(e.pageX - $('.jp-volume-bar-value').offset().left) 
             mousex = x;
@@ -117,9 +99,7 @@ $(document).ready(function () {
         }
     });
     $('.jp-volume-bar-value').mouseup(function () { 
-        console.log(345);
         volume.onmousemove = null;
     })
     $('.jp-volume-bar-value').css('width',   '200px')
-
 })

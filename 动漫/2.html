@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jq.mini.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .adress,
+        .list,
+        .schedule,
+        .charge,
+        .sort {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .list-item{
+            padding: 0 40px;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+
+        ul li {
+            margin-left: 10px;
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 1449px;
+        }
+        .box li {
+            width: 180px;
+            margin: 20px 30px;
+        }
+
+        .box li img {
+            width: 100%;
+        }
+
+        .box li p {
+            font-size: 16px;
+        }
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="list-item">
+        <div class="list">
+            <span>题材</span>
+            <ul>
+                <li id="-1" class="active">全部</li>
+                <li id="999">热血</li>
+                <li id="997">古风</li>
+                <li id="1016">玄幻</li>
+                <li id="998">奇幻</li>
+                <li id="1023">悬疑</li>
+                <li id="1002">都市</li>
+                <li id="-1096">历史</li>
+                <li id="1092">武侠仙侠</li>
+                <li id="1088">游戏竞技</li>
+                <li id="1081">悬疑灵异</li>
+                <li id="1063">架空</li>
+                <li id="1060">青春</li>
+                <li id="1054">西幻</li>
+                <li id="1048">现代</li>
+                <li id="1028">正能量</li>
+                <li id="1015">科幻</li>
+            </ul>
+        </div>
+        <div class="adress">
+            <span>地区</span>
+            <ul class="adress-list">
+                <li id="-1" class="active">全部</li>
+                <li id="1">大陆</li>
+                <li id="2">日本</li>
+                <li id="6">韩国</li>
+                <li id="5">其他</li>
+            </ul>
+        </div>
+        <div class="schedule">
+            <span>进度</span>
+            <ul>
+                <li id="-1" class="active">全部</li>
+                <li id="0">连载</li>
+                <li id="1">完结</li>
+            </ul>
+        </div>
+        <div class="charge">
+            <span>收费</span>
+            <ul>
+                <li id="-1" class="active">全部</li>
+                <li id="1">免费</li>
+                <li id=2>付费</li>
+                <li id="3">等就免费</li>
+            </ul>
+        </div>
+        <div class="sort">
+            <span>排序</span>
+            <ul>
+                <li id="0" class="active">人气推荐</li>
+                <li id="1">更新时间</li>
+                <li id="2">追漫人数</li>
+                <li id="3">上架时间</li>
+            </ul>
+        </div>
+    </section>
+    <section class="box">
+        <ul>
+        </ul>
+    </section>
+</body>
+<script>
+    $(function () {
+        var list = document.querySelector('.list');
+        var listli = list.querySelectorAll('li');
+        var adress = document.querySelector('.adress');
+        var adressli = adress.querySelectorAll('li');
+        var schedule = document.querySelector('.schedule');
+        var scheduleli = schedule.querySelectorAll('li');
+        var charge = document.querySelector('.charge');
+        var chargeli = charge.querySelectorAll('li');
+        var sort = document.querySelector('.sort');
+        var sortli = sort.querySelectorAll('li');
+        var box = document.querySelector('.box')
+
+        var id1 = 999;
+        var id2 = -1;
+        var id3 = -1;
+        var id4 = 0;
+
+        listli.forEach(function (e) {
+            e.onclick = function () {
+                $(this).addClass('active').siblings().removeClass('active')
+                id1 = e.getAttribute('id')
+                getAjax(id1)
+            }
+        })
+        adressli.forEach(function (e) {
+            e.onclick = function () {
+                id2 = e.getAttribute('id')
+                $(this).addClass('active').siblings().removeClass('active')
+                getAjax(id1, id2)
+            }
+        })
+        scheduleli.forEach(function (e) {
+            e.onclick = function () {
+                id3 = e.getAttribute('id')
+                $(this).addClass('active').siblings().removeClass('active')
+                getAjax(id1, id2, id3)
+            }
+        })
+        chargeli.forEach(function (e) {
+            e.onclick = function () {
+                id4 = e.getAttribute('id')
+                $(this).addClass('active').siblings().removeClass('active')
+                getAjax(id1, id2, id3, id4)
+            }
+        })
+
+
+        // 获取全部数据(默认)
+        $.ajax({
+            url: 'https://apis.netstart.cn/bcomic/ClassPage',
+            type: 'get',
+            dataType: 'json',
+            data: {
+                'styleId': -1,
+                'areaId': -1,
+                'isFinish': -1,
+                'order': 0,
+                'pageNum': 1,
+                'pageSize': 39,
+                'isFree': -1,
+            },
+            success: function (res) {
+                //组装
+                var str = "";
+                for (const key in res.data) {
+                    str += `
+                         <li>
+                            <img src="${res.data[key].vertical_cover}" alt="">
+                            <p>${res.data[key].title}</p>
+                         </li>
+               `
+                }
+                $('.box ul').html(str)
+            }
+        })
+        // 封装ajax
+        function getAjax(id1, id2, id3, id4) {
+            $.ajax({
+                url: 'https://apis.netstart.cn/bcomic/ClassPage',
+                type: 'get',
+                dataType: 'json',
+                data: {
+                    'styleId': id1,
+                    'areaId': id2,
+                    'isFinish': id3,
+                    'order': id4,
+                    'pageNum': 1,
+                    'pageSize': 39,
+                    'isFree': -1,
+                },
+                success: function (res) {
+                    //组装
+                    var str = "";
+                    for (const key in res.data) {
+                        str += `
+                         <li>
+                            <img src="${res.data[key].vertical_cover}" alt="">
+                            <p>${res.data[key].title}</p>
+                         </li>   `
+                    }
+                    $('.box ul').html(str)
+                }
+            })
+        }
+    });
+</script>
+
+</html>

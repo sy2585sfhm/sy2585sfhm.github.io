@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title> Insha - Css3 Responsive Sidebar Menu</title>
+
+<link href='static/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="static/css/insha-style.css">
+<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.2.0/css/all.css" rel="stylesheet">
 </head>
 <body>
-   <a href="">放大镜</a>
+
+<div class="main">
+	<div class="sidebar">
+		<div class="logo_content">
+			<div class="logo">
+				<div class="logo_name">
+					<a href="#">
+						前端作品展示
+					</a>
+				</div>
+			</div>
+			<i class="fa fa-align-justify" aria-hidden="true" id="toggle-menu-btn"></i>
+		</div>
+		<ul class="nav_list">
+			<li>
+				<a href="#">
+					<i class='bx bx-grid-alt'></i>
+					<span class="links_name">全部</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="./img/HTML5.png" alt="">
+					<span class="links_name">html静态作品</span>
+				</a>
+				<span class="tooltip">html静态作品</span>
+			</li>
+			<li>
+				<a href="#">
+					<img src="./img/jQuery.png" alt="">
+					<span class="links_name">jQuery案例</span>
+				</a>
+				<span class="tooltip">jQuery案例</span>
+			</li>
+			<li>
+				<a href="#">
+					<img src="./img/js.png" alt="">
+					<span class="links_name">js案例</span>
+				</a>
+				<span class="tooltip">js案例</span>
+			</li>
+			<li>
+				<a href="#">
+					<img src="./img/Bootstrap.png" alt="">
+					<span class="links_name">Bootstrap案例</span>
+				</a>
+				<span class="tooltip">Bootstrap案例</span>
+			</li>
+		</ul>
+		<div class="profile_content">
+			<div class="profile">
+					<div class="name_job">
+						<h4 class="name">作品项目类型</h4>
+						<p class="job">H5 Js jQuery Vue</p>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="home_content">
+		<div class="text">
+			
+		</div>
+	</div>
+</div>
+
+<script src="static/js/jquery-3.4.1.min.js"></script>
+<script src="static/js/scripts.js"></script>
+
 </body>
 </html>

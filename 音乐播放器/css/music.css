@@ -47,7 +47,8 @@ body {
 }
 
 .music-player .info .jp-playlist li {
-    display: none;
+    color: #fff;
+    margin-bottom: 20px;
 }
 
 .music-player .info .jp-playlist li a {
