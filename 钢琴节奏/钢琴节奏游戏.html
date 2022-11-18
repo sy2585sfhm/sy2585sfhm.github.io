@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .stage {
+            width: 100%;
+            max-width: 392px;
+            height: 100vh;
+            background-color: lightblue;
+            background-image: url("./bg.png");
+            background-size: 100% auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stage .num {
+            position: absolute;
+            color: #fff;
+            z-index: 9999;
+            font-size: 42px;
+        }
+
+        .stage .main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(173, 216, 230, 0.601); */
+        }
+
+        .stage .main i {
+            position: absolute;
+            top: 0;
+            left: 0px;
+            width: 90px;
+            height: 90px;
+            background-image: url("./jingling.png");
+            background-position: 0px 0px;
+            background-position: -181px -75px;
+            background-size: 545px;
+        }
+
+        .stage .main i.played {
+            background-image: url("./playing.png");
+            background-size: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .stage .over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.423);
+            display: none;
+        }
+
+        .stage .over .over-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .stage .over .over-container span {
+            display: block;
+            width: 100%;
+            height: 80px;
+            font-size: 48px;
+            color: red;
+        }
+        .stage .over .over-container span:hover{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <section class="main"></section>
+        <span class="num">0</span>
+        <section class="over">
+            <div class="over-container">
+                <span class="game">Game Over</span>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    var mainEl = document.querySelector('.stage .main');
+    var overEl = document.querySelector('.over');
+    var gamesum = document.querySelector('.num');
+    var game=document.querySelector('.game')
+    var time = 30;
+    var j = 0;
+    var temp = 0
+    var dots = [];
+    mainEl.onclick = over()
+    game.onclick=function () {
+        document.location.reload();
+    }
+    function Dots(y) {
+        var that = this;
+        this.x = Math.floor(Math.random() * 4);
+        this.y = y;
+        this.node = document.createElement("i")//创建节点
+        //更新视图
+        this.updateView();
+        mainEl.appendChild(this.node)//添加节点
+        //给每个i标签添加点击事件
+        this.node.addEventListener('click', function () {
+            // 限制按顺序点击  判断点击的元素是不是 所有还没点的第一个
+            var firstnode=dots.filter(function (Dots) {
+                return ! Dots.played
+            })[0];
+            if (this.isSameNode(firstnode.node)) { 
+                that.node.classList.add('played');
+                that.played = true;
+                j++;
+                temp+=0.003
+            }
+            event.stopPropagation();
+        })
+    }
+    Dots.prototype.updateView = function () {
+        this.node.style.left = this.x * 100 + 'px';
+        this.node.style.top = this.y * 90 + 'px';
+    }
+    //移动
+    Dots.prototype.move = function () {
+        this.y+=temp        
+    }
+    //时间
+    // Dots.prototype.timer = function () {
+    //     if (j > 10) {
+    //         this.y += 0.05
+    //     } else if (j > 100) {
+    //         this.y += 0.1
+    //     }
+    // }
+    //初始化
+    function init() {
+        for (let i = 6; i > 0; i--) {
+            var d = new Dots(i - 2);
+            dots.push(d)
+        }
+    }
+    init();
+    //游戏结束
+    function over() {
+        var first = dots.filter(function (Dots) {
+            return !Dots.played
+        })[0];
+        //检测第一个没点的音符是否触底
+        if (first && (first.y + 1) * 90 > 845) {
+            overEl.style.display = 'block';
+            clearInterval(times);
+        }
+        mainEl.onclick = function () {
+            var x = Math.floor(event.clientX / 90);
+            var firstLtClick = dots.find(function (dot) {
+                return dot.y * 90 < event.clientY;
+            });
+            y = firstLtClick ? firstLtClick.y : dots[0].y;
+            var node = document.createElement("div");
+            node.style.width = "90px";
+            node.style.height = "90px";
+            node.style.position = "absolute";
+            node.style.top = y * 100 + "px";
+            node.style.left = x * 100 + "px";
+            node.style.backgroundColor = "transparent";
+            mainEl.appendChild(node);
+            overEl.style.display = 'block';
+            clearInterval(times)
+        }
+    }
+    var times = setInterval(function () {
+        dots.forEach(function (Dots) {
+            Dots.move();
+            Dots.updateView();
+            // Dots.timer();
+        })
+        // 判断最后一个小点是不是已经完全出现
+        // 生成后面一个
+        if (dots[dots.length - 1].y >= 0) {
+            var d = new Dots(-1);
+            dots.push(d);
+        }
+
+        // 结束游戏
+        over();
+        // 第一个还没有点击的dot
+        //把已经点击的音符且超出视口范围的删除掉
+        var firstPlayed = dots.filter(function (Dots) {
+            return Dots.played;
+        })[0];
+        if (firstPlayed && firstPlayed.y * 90 > 844) {
+            // 已经点击的第一个元素 超出
+            // 删除数组删除dom
+            mainEl.removeChild(firstPlayed.node);
+            dots.splice(dots.indexOf(firstPlayed), 1);
+        }
+        gamesum.innerText = j
+    }, time)
+</script>
+
+</html>

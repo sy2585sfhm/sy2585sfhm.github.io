@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgba(142, 142, 142, 0.78);
+}
+.time {
+  display: flex;
+}
+.time .container {
+  width: 550px;
+  height: 100px;
+  margin: 100px auto;
+  display: flex;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 4px #222;
+  background-color: rgba(222, 222, 222, 0.5);
+}
+.time .container section {
+  margin-left: 15px;
+}
+.time .container section.hour {
+  display: flex;
+  padding: 12px;
+}
+.time .container section.hour div {
+  margin-left: 10px;
+}
+.time .container section.hour .hour1 {
+  font-size: 20px;
+  color: aliceblue;
+}
+.time .container section.hour .hour1 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 61px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #22222296;
+  border-radius: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  font-size: 60px;
+  text-shadow: 0 0 0 0 black;
+}
+.time .container section.hour .hour2 {
+  font-size: 20px;
+  color: aliceblue;
+}
+.time .container section.hour .hour2 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 61px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #22222296;
+  border-radius: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  font-size: 60px;
+}
+.time .container section.minute {
+  display: flex;
+  padding: 12px;
+}
+.time .container section.minute div {
+  margin-left: 10px;
+}
+.time .container section.minute .minute1 {
+  font-size: 20px;
+  color: aliceblue;
+}
+.time .container section.minute .minute1 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 61px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #22222296;
+  border-radius: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  font-size: 60px;
+}
+.time .container section.minute .minute2 {
+  font-size: 20px;
+  color: aliceblue;
+}
+.time .container section.minute .minute2 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 61px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #22222296;
+  border-radius: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  font-size: 60px;
+}
+.time .container section.second {
+  display: flex;
+  padding: 12px;
+}
+.time .container section.second div {
+  margin-left: 10px;
+}
+.time .container section.second .second1 {
+  font-size: 20px;
+  color: aliceblue;
+}
+.time .container section.second .second1 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 61px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #22222296;
+  border-radius: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  font-size: 60px;
+}
+.time .container section.second .second2 {
+  font-size: 20px;
+  color: aliceblue;
+}
+.time .container section.second .second2 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 61px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #22222296;
+  border-radius: 10px;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  font-size: 60px;
+}
+/*# sourceMappingURL=./滚动时钟.css.map */

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .stage {
+            width: 100%;
+            max-width: 392px;
+            height: 100vh;
+            background-color: #fff;
+            background-size: 100% auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .stage .num {
+            position: absolute;
+            color: #000;
+            z-index: 9999;
+            font-size: 42px;
+        }
+
+        .stage .main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: rgba(173, 216, 230, 0.601); */
+        }
+
+        .stage .main div {
+            position: absolute;
+            top: 0;
+            left: 0px;
+            width: 90px;
+            height: 180px;
+            background-color: black;
+            background-position: 0px 0px;
+            background-position: -181px -75px;
+            background-size: 545px;
+        }
+
+        .stage .over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.423);
+            display: none;
+        }
+
+        .stage .over .over-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            text-align: center;
+            align-items: center;
+        }
+
+        .stage .over .over-container span {
+            display: block;
+            width: 100%;
+            height: 80px;
+            font-size: 48px;
+            color: red;
+        }
+
+        .stage .over .over-container span:hover {
+            color: blue;
+        }
+
+        .stage .mask {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-color: #999999d9;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .stage .mask span {
+            width: 176px;
+            height: 71px;
+            font-size: 42px;
+            font-weight: 700;
+            color: #fff;
+            background-color: #00800040;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <section class="main"></section>
+        <span class="num">0</span>
+        <section class="over">
+            <div class="over-container">
+                <span class="game">Game Over</span>
+            </div>
+        </section>
+        <div class="mask">
+            <span>开始游戏</span>
+        </div>
+    </div>
+</body>
+<script>
+    var mainEl = document.querySelector('.main');
+    var overEl = document.querySelector('.over');
+    var sum = document.querySelector('.num');
+    var gameover = document.querySelector('.game');
+    var start = document.querySelector('.mask').children[0];
+    var num = 0;
+    var temp = 0;
+    var dots = [];
+    // mainEl.addEventListener('click',over())
+    start.addEventListener('click', function () {
+        document.querySelector('.mask').style.display = 'none';
+    })
+    gameover.onclick=function(){
+        document.location.reload();
+    }
+    function Dots(y) {
+        var that = this;
+        this.x = Math.floor(Math.random() * 4)//四列
+        this.y = y;
+        //创建div标签
+        this.node = document.createElement('div');
+        this.view();
+        mainEl.appendChild(this.node);
+        this.node.addEventListener('click', function () {
+            // 限制按顺序点击  判断点击的元素是不是 所有还没点的第一个
+            var firstnode = dots.filter(function (Dots) {
+                return !Dots.played
+            })[0];
+            if (this.isSameNode(firstnode.node)) {
+                that.node.style.backgroundColor = '#fff';
+                that.played = true;
+                num++;
+                temp += 0.001
+            }
+            event.stopPropagation();
+        })
+    }
+    //视图 main里的子元素的随机位置
+    Dots.prototype.view = function () {
+        this.node.style.left = this.x * 90 + 'px';
+        this.node.style.top = this.y * 180 + 'px';
+    }
+    //移动
+    Dots.prototype.move = function () {
+        this.y += temp
+
+    }
+    //初始化
+    function init() {
+        for (let i = 3; i > 0; i--) {
+            var dot = new Dots(i - 1);
+            dots.push(dot);
+        }
+    }
+    init();
+    //游戏结束
+    function over() {
+        //检测是否触底
+        var first = dots.filter(function (Dots) {
+            return !Dots.played
+        })[0];
+        if (first&&(first.y+1)*180>740) {
+            overEl.style.display = 'block';
+            clearInterval(time);
+        }
+        mainEl.addEventListener('click',function () {
+            overEl.style.display='block'
+            clearInterval(time)
+        })
+    }
+    var time = setInterval(function () {
+        dots.forEach(function (Dots) {
+            Dots.move();
+            Dots.view();
+        })
+        if (dots.length==0) {
+            var d=new Dots(-1);
+            dots.push(d)
+        }else if(dots[dots.length-1].y>=0){
+            var d=new Dots(-1);
+            dots.push(d)
+        }
+        over();
+        var firstPlayed = dots.filter(function (Dots) {
+            return Dots.played;
+        })[0];
+        if (firstPlayed && firstPlayed.played==true) {
+            // 把played为true的在数组中删除
+            mainEl.removeChild(firstPlayed.node);
+            dots.splice(dots.indexOf(firstPlayed), 1);
+        }
+        sum.innerText = num
+    }, 60);
+</script>
+</html>

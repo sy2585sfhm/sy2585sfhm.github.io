@@ -1,0 +1,797 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 1110px;
+  margin: 0 auto;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+header {
+  background-color: rgba(102, 102, 102, 0.397);
+  background-image: url(../img/kid_transparent.png);
+  background-repeat: no-repeat;
+  background-position: 719px -48px;
+  height: 1000px;
+}
+header .shorcut {
+  overflow: hidden;
+  padding: 10px 15px;
+  margin-bottom: 16px;
+}
+header .shorcut .logo {
+  font-size: 2.7rem;
+}
+header .shorcut .logo a {
+  text-decoration: none;
+  color: #ffff;
+}
+header .shorcut .logo a span {
+  color: red;
+}
+header .shorcut .content {
+  overflow: hidden;
+}
+header .shorcut .content .address {
+  margin-right: 48px;
+}
+header .shorcut .content .address i {
+  font-size: 36px;
+  margin-right: 16px ;
+  color: orange;
+}
+header .shorcut .content .address span {
+  display: inline-block;
+  line-height: 1.2;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+header .shorcut .content .time i {
+  font-size: 36px;
+  margin-right: 16px ;
+  color: red;
+}
+header .shorcut .content .time span {
+  display: inline-block;
+  line-height: 1.2;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+header .nav {
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  background-color: #fff;
+  border-radius: 50px;
+  overflow: hidden;
+}
+header .nav ul.list {
+  overflow: hidden;
+}
+header .nav ul.list li {
+  float: left;
+  list-style: none;
+  display: inline-block;
+}
+header .nav ul.list li:first-child a {
+  color: #dc3545;
+}
+header .nav ul.list li a {
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 20px 0px;
+  color: #000;
+  display: inline-block;
+  text-decoration: none ;
+}
+header .nav .top-social a {
+  display: inline-block;
+  padding: 20px;
+}
+header .nav .top-social a .fa-facebook {
+  color: #0ed391;
+}
+header .nav .top-social a .fa-twitter {
+  color: #088f62;
+}
+header .nav .top-social a .fa-linkedin {
+  color: orange;
+}
+header .banner {
+  width: 40%;
+  padding: 48px 15px 0;
+  margin-top: 48px;
+}
+header .banner span.text-cursive {
+  color: #fd4d40;
+  font-family: "Indie Flower", cursive;
+  font-size: 16px;
+}
+header .banner h1.title {
+  font-size: 48px;
+  color: #fff;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+header .banner p {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+header .banner p.btn-box {
+  margin: 48px 0 16px;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+header .banner p.btn-box a.btn {
+  background-color: #fd4d40;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid orange;
+  display: inline-block;
+  padding: 24px 20px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+}
+main .list-section {
+  background-color: #ffffff;
+  padding: 112px 0;
+}
+main .list-section ul.list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+main .list-section ul.list li {
+  float: left;
+  width: calc(33.33% - 30px);
+  padding: 0 15px;
+  text-align: center;
+}
+main .list-section ul.list li .content {
+  background-color: #fd4d40;
+  padding: 40px;
+  position: relative;
+}
+main .list-section ul.list li .content .wrap-icon {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-top: -65px;
+  margin-left: 96px;
+  border-radius: 50%;
+  background-color: #fd4d40;
+}
+main .list-section ul.list li .content .wrap-icon i {
+  font-size: 36px;
+  margin-top: 17px;
+  color: #fff;
+}
+main .list-section ul.list li .content h2 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+main .list-section ul.list li .content p {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+}
+main .list-section ul.list li .content1 {
+  background-color: #b8b800;
+  padding: 40px;
+  position: relative;
+}
+main .list-section ul.list li .content1 .wrap-icon {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-top: -65px;
+  margin-left: 96px;
+  border-radius: 50%;
+  background-color: #b8b800;
+}
+main .list-section ul.list li .content1 .wrap-icon i {
+  font-size: 36px;
+  margin-top: 17px;
+  color: #fff;
+}
+main .list-section ul.list li .content1 h2 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+main .list-section ul.list li .content1 p {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+}
+main .list-section ul.list li .content2 {
+  background-color: aquamarine;
+  padding: 40px;
+  position: relative;
+}
+main .list-section ul.list li .content2 .wrap-icon {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin-top: -65px;
+  margin-left: 96px;
+  border-radius: 50%;
+  background-color: aquamarine;
+}
+main .list-section ul.list li .content2 .wrap-icon i {
+  font-size: 36px;
+  margin-top: 17px;
+  color: #fff;
+}
+main .list-section ul.list li .content2 h2 {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+main .list-section ul.list li .content2 p {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 16px;
+}
+main .Kids {
+  padding: 112px 0;
+  background-color: #f6f5f5;
+  overflow: hidden;
+}
+main .Kids .img {
+  width: 50%;
+  height: 463px;
+  padding: 0 15px;
+  background-image: url(../img/img_1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+}
+main .Kids .content {
+  width: calc(50% - 95px);
+  padding: 0 0 0 48px;
+  margin-left: 95px;
+  box-sizing: border-box;
+}
+main .Kids .content span.text-cursive {
+  color: #fd4d40;
+  font-family: "Indie Flower", cursive;
+  font-size: 16px;
+}
+main .Kids .content h3.text-black {
+  color: #000;
+  font-size: 28px;
+  margin-bottom: 8px;
+  font-size: 700;
+}
+main .Kids .content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: #364d59;
+  font-weight: 300;
+  font-size: 16px;
+}
+main .Kids .content p.b-box {
+  box-sizing: border-box;
+  margin: 48px 0 16px 0;
+}
+main .Kids .content p.b-box a.btn {
+  background-color: #ffc107;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 24px 20px;
+}
+main .Packages {
+  background-color: #17a2b8;
+  padding: 112px 0;
+}
+main .Packages .row .text {
+  text-align: center;
+}
+main .Packages .row .text span.text-cursive {
+  font-family: "Indie Flower", cursive;
+  color: #fd4d40;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+main .Packages .row .text h2.text-white {
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+main .Packages .content .list-cards ul.list {
+  overflow: hidden;
+}
+main .Packages .content .list-cards ul.list li {
+  float: left;
+  width: calc(33.33% - 30px);
+  padding: 0 15px;
+  text-align: center;
+}
+main .Packages .content .list-cards ul.list li .card {
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+main .Packages .content .list-cards ul.list li .card span.img-wrap {
+  margin: 0 auto 30px auto;
+  display: block;
+}
+main .Packages .content .list-cards ul.list li .card span.img-wrap img {
+  width: 80px;
+  height: 80px;
+}
+main .Packages .content .list-cards ul.list li .card h3.text-teal {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #16c3b0;
+}
+main .Packages .content .list-cards ul.list li .card h3.text-teal1 {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #71bc42;
+}
+main .Packages .content .list-cards ul.list li .card h3.text-teal2 {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #dc3545;
+}
+main .Packages .content .list-cards ul.list li .card p {
+  line-height: 1.7;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 16px;
+}
+main .Packages .content .list-cards ul.list li .card p {
+  line-height: 1.7;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+main .Packages .content .list-cards ul.list li .card p a.btn {
+  border: 1px solid transparent;
+  background-color: #fd4d40;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+main .Packages .content .list-cards ul.list li .card p a.btn1 {
+  border: 1px solid transparent;
+  background-color: #ffc107;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+main .Packages .content .list-cards ul.list li .card p a.btn2 {
+  border: 1px solid transparent;
+  background-color: #71bc42;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+main .Pricing {
+  padding: 112px 0;
+}
+main .Pricing > .container {
+  overflow: hidden;
+}
+main .Pricing .text-content {
+  width: calc(33.33% - 20px);
+  padding: 0 15px;
+}
+main .Pricing .text-content span.text-cursive {
+  color: #fd4d40;
+  font-weight: 300;
+  font-family: "Indie Flower", cursive;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+main .Pricing .text-content h2.text-black {
+  color: #000;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 2rem;
+}
+main .Pricing .text-content p {
+  font-weight: 300;
+  color: #666;
+  margin-bottom: 16px;
+}
+main .Pricing .pricing {
+  padding: 0 15px;
+  width: calc(33.33% - 40px);
+}
+main .Pricing .pricing span.price {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: block;
+  background-color: #16c3b0;
+  border: 1px solid transparent;
+  margin-bottom: 30px;
+  position: relative;
+}
+main .Pricing .pricing span.price::before {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  content: "";
+}
+main .Pricing .pricing span.price span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 26px;
+  transform: translate(-50%, -50%);
+}
+main .Pricing .pricing h3 {
+  font-size: 25px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+main .Pricing .pricing ul.check-list {
+  margin-bottom: 50px;
+}
+main .Pricing .pricing ul.check-list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+main .Pricing .pricing ul.check-list li span {
+  left: 0;
+  font-size: 20px;
+  top: 0;
+  font-weight: 100;
+  content: "";
+  position: absolute;
+  color: #16c3b0;
+}
+main .Pricing .pricing p {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+main .Pricing .pricing p a {
+  background: #16c3b0;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+}
+main .Pricing .pricing1 {
+  padding: 0 15px;
+  width: calc(33.33% - 30px);
+}
+main .Pricing .pricing1 span.price {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: block;
+  background-color: #dc3545;
+  border: 1px solid transparent;
+  margin-bottom: 30px;
+  position: relative;
+}
+main .Pricing .pricing1 span.price::before {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  left: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  content: "";
+}
+main .Pricing .pricing1 span.price span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 26px;
+  transform: translate(-50%, -50%);
+}
+main .Pricing .pricing1 h3 {
+  font-size: 25px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+main .Pricing .pricing1 ul.check-list {
+  margin-bottom: 50px;
+}
+main .Pricing .pricing1 ul.check-list li {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+main .Pricing .pricing1 ul.check-list li span {
+  left: 0;
+  font-size: 20px;
+  top: 0;
+  font-weight: 100;
+  content: "";
+  position: absolute;
+  color: #dc3545;
+}
+main .Pricing .pricing1 p {
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+main .Pricing .pricing1 p a {
+  background: #dc3545;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: white;
+}
+main .Evaluation {
+  padding: 112px 0;
+  background-color: #f6f5f5;
+}
+main .Evaluation .text-center {
+  text-align: center;
+}
+main .Evaluation .text-center span.text-cursive {
+  color: #fd4d40;
+  margin-bottom: 8px;
+  font-family: "Indie Flower", cursive;
+  display: inline-block;
+}
+main .Evaluation .text-center h2.text-black {
+  font-size: 32px;
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+main .Evaluation .content .Customer-evaluation {
+  width: 670px;
+  margin: auto;
+  overflow: hidden;
+  padding: 30px;
+  background-color: #fd4d40;
+}
+main .Evaluation .content .Customer-evaluation .Customer {
+  width: calc(20% - 48px);
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  margin-right: 48px;
+}
+main .Evaluation .content .Customer-evaluation .Customer img {
+  width: 80px;
+  height: 80px;
+}
+main .Evaluation .content .Customer-evaluation .text {
+  width: 80%;
+  float: left;
+}
+main .Evaluation .content .Customer-evaluation .text h3 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+main .Evaluation .content .Customer-evaluation .text p.position {
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+}
+main .Evaluation .content .Customer-evaluation .text p {
+  font-size: 20px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: #fff;
+}
+main .Evaluation .Evaluation-num {
+  margin-top: 48px;
+}
+main .Evaluation .Evaluation-num .content ul.num-list {
+  width: 760px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li {
+  width: calc(25% - 30px);
+  padding: 0 15px;
+  float: left;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Happy-Client span.text-teal {
+  display: block;
+  color: #16c3b0;
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Happy-Client span {
+  color: #364d59;
+  font-weight: 300;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Members span.text-yellow {
+  display: block;
+  color: #fdb62f;
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Members span {
+  color: #364d59;
+  font-weight: 300;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Staffs span.text-success {
+  display: block;
+  color: #71bc42;
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Staffs span {
+  color: #364d59;
+  font-weight: 300;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Followers span.text-red {
+  display: block;
+  color: #dc3545;
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+main .Evaluation .Evaluation-num .content ul.num-list li.Followers span {
+  color: #364d59;
+  font-weight: 300;
+}
+main .site-section {
+  padding: 48px;
+  background-color: #fdb62f;
+}
+main .site-section .container .row .content {
+  overflow: hidden;
+}
+main .site-section .container .row .content h2.text-white {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 13px;
+}
+main .site-section .container .row .content a.btn {
+  padding: 16px 48px;
+  border: 1px solid transparent;
+  background-color: #dc3545;
+  border-radius: 30px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #fff;
+}
+footer {
+  padding: 128px 0;
+  background-color: #343a40;
+}
+footer .content {
+  overflow: hidden;
+}
+footer .content .Our {
+  width: 30%;
+  padding: 0 15px;
+}
+footer .content .Our h2.footer-heading {
+  font-size: 18px;
+  color: #fd4d40;
+  margin-bottom: 16px;
+}
+footer .content .Our p {
+  color: #fff;
+  margin-bottom: 48px;
+  font-weight: 400;
+}
+footer .content .Our form.form input.form-control {
+  height: 30px;
+  width: 196px;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  padding: 6px 12px;
+  margin-right: 16px;
+  outline: none;
+}
+footer .content .Our form.form input.btn-primary {
+  border-radius: 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #dc3545;
+  border: 0;
+  color: #fff;
+}
+footer .content .list {
+  width: 20% ;
+  padding: 0 15px;
+}
+footer .content .list h2.footer-heading {
+  font-size: 18px;
+  color: #fd4d40;
+  margin-bottom: 24px;
+}
+footer .content .list ul.list-unstyled {
+  margin-bottom: 16px;
+}
+footer .content .list ul.list-unstyled li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+footer .content .list ul.list-unstyled li a {
+  color: rgba(255, 255, 255, 0.8);
+}
+footer .row {
+  padding-top: 48px ;
+  margin-top: 48px;
+  border-top: 1px solid #666;
+  text-align: center;
+}
+footer .row .text-container {
+  padding: 0 15px;
+}
+footer .row .text-container .border-top {
+  padding-top: 48px;
+}
+footer .row .text-container .border-top p {
+  color: #fff;
+  margin-bottom: 16px;
+}
+footer .row .text-container .border-top p a {
+  color: #666666;
+}
+/*# sourceMappingURL=./儿童.css.map */

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            background: url(./img/5.jpg) no-repeat;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container ul {
+            width: 94%;
+            display: flex;
+        }
+
+        .container ul .item {
+            width: 10%;
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+/* 
+        .container ul li:nth-child(1) {
+            background: url(./img/5.jpg) no-repeat;
+        }
+
+        .container ul li:nth-child(2) {
+            background: url(./img/6.jpg) no-repeat;
+        }
+
+        .container ul li:nth-child(3) {
+            background: url(./img/7.jpg) no-repeat;
+        }
+
+        .container ul li:nth-child(4) {
+            background: url(./img/8.jpg) no-repeat;
+        } */
+
+        .container ul .item img {
+            height: 200px;
+        }
+        .container ul .list img{
+            width: 336px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li class="item">
+                <img src="./img/5.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./img/6.jpg" alt="">
+            </li>
+            <li class="item">
+                <img src="./img/7.jpg" alt="">
+            </li>
+            <li class="list item">
+                <img src="./img/8.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var lists = document.getElementsByClassName('item');
+    var imgs=document.querySelectorAll('img')
+    for (var i = 0; i < lists.length; i++) {
+        lists[i].onclick = function () {
+            for (var i = 0; i < lists.length; i++) {
+                lists[i].style.width = '10%';
+            }
+            this.style.width='250px'
+        }
+    }
+    lists[0].style.width = '250px';
+    for (var i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = function () {
+            document.body.style.backgroundImage='url('+this.src+')';
+        }
+    }
+</script>
+
+</html>

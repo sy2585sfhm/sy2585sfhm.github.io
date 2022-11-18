@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.time .container {
+  display: flex;
+  justify-content: space-between;
+  width: 550px;
+  background-color: aqua;
+  margin: 0 auto;
+}
+.time .container section.hourtime {
+  display: flex;
+  overflow: hidden;
+}
+.time .container section.hourtime div {
+  flex-direction: column;
+  overflow: hidden;
+}
+.time .container section.hourtime .hour {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+}
+.time .container section.hourtime .hour span {
+  font-size: 40px;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+.time .container section.hourtime .hours {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  align-items: center;
+}
+.time .container section.hourtime .hours span {
+  font-size: 40px;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+.time .container section.minutetime {
+  display: flex;
+}
+.time .container section.minutetime .minute {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+}
+.time .container section.minutetime .minute span {
+  font-size: 40px;
+}
+.time .container section.minutetime .minutes {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  align-items: center;
+}
+.time .container section.minutetime .minutes span {
+  font-size: 40px;
+}
+.time .container section.secondtime {
+  display: flex;
+}
+.time .container section.secondtime .second {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+}
+.time .container section.secondtime .second span {
+  font-size: 40px;
+}
+.time .container section.secondtime .seconds {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid #fff;
+  align-items: center;
+}
+.time .container section.secondtime .seconds span {
+  font-size: 40px;
+}
+/*# sourceMappingURL=./滚动计时器.css.map */

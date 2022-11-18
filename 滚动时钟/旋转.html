@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="stage">
+    <div class="tail">
+    </div>
+    <div class="needle">
+      <div class="circle"></div>
+      <div class="hh" id="h"></div>
+      <div class="mm" id="m"></div>
+      <div class="ss" id="s"></div>
+    </div>
+  </div>
+  <style>
+    .stage {
+      width: 500px;
+      height: 500px;
+      background-color: lightblue;
+      border-radius: 50%;
+    }
+
+    .stage .tail {
+      /* display: flex; */
+      position: relative;
+    }
+
+    .stage .tail i {
+      display: block;
+      transform-origin: center 250px;
+    }
+
+    .stage .tail i.b {
+      width: 8px;
+      height: 40px;
+      background-color: lightcoral;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -4px;
+
+      /* transform: rotate(45deg); */
+    }
+
+    .stage .tail i.s {
+      width: 4px;
+      height: 20px;
+      background-color: black;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -2px;
+      /* transform: rotate(45deg); */
+    }
+
+    .stage .needle {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background-color: rgb(9 112 78 / 61%);
+    }
+    .stage .needle .circle{
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      top: 49%;
+      left: 50%;
+      margin-left: -10px;
+      z-index: 1;
+    }
+    .stage .needle .hh {
+      width: 15px;
+      height: 70px;
+      position: absolute;
+      border-radius: 10px;
+      top: 50%;
+      left: 50%;
+      margin-left: -7.5px;
+      background-color: aqua;
+      transform-origin: center 0;
+      transform: rotate(180deg);
+    }
+
+    .stage .needle .mm {
+      width: 10px;
+      height: 140px;
+      position: absolute;
+      border-radius: 10px;
+      top: 50%;
+      left: 50%;
+      margin-left: -5px;
+      background-color: aqua;
+      transform-origin: center 0;
+      transform: rotate(180deg);
+    }
+
+    .stage .needle .ss {
+      width: 8px;
+      height: 210px;
+      position: absolute;
+      border-radius: 10px;
+      top: 50%;
+      left: 50%;
+      margin-left: -4px;
+      background-color: aqua;
+      transform-origin: center 0;
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <script>
+    var hour = document.getElementById('h');
+    var minute = document.getElementById('m');
+    var second = document.getElementById('s');
+    for (let i = 0; i < 12 * 5; i++) {
+      var node = document.createElement("i");
+      if (i % 5 === 0) {
+        node.className = "b";
+      } else {
+        node.className = "s";
+      }
+
+      node.style.transform = "rotate(" + i * (360 / (12 * 5)) + "deg)";
+      document.querySelector(".tail").appendChild(node);
+    }
+    function Clock() {
+      var date = new Date();
+      // 获取时分秒
+      var hh = date.getHours();
+      var mm = date.getMinutes();
+      var ss = date.getSeconds();
+      var hhh = hh * 30 + mm / 60 * 30+180
+      var mmm = mm * 6 + ss / 60 * 6+180
+      var sss = ss*6+180
+      //旋转角度
+      hour.style.transform = `rotate(${hhh}deg)`;
+      minute.style.transform = `rotate(${mmm}deg)`;
+      second.style.transform = `rotate(${sss}deg)`;
+    }
+    Clock();
+    setInterval(Clock, 1000);
+  </script>
+</body>
+
+</html>

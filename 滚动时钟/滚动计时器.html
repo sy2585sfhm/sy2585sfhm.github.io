@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/滚动时钟.css">
+</head>
+
+<body>
+    <div class="time">
+        <div class="container">
+            <section class="hour">
+                <div class="hour1">
+                    <span>0</span>
+                </div>
+                <div class="hour2">
+                    <span>0</span>
+                </div>
+            </section>
+            <section class="minute">
+                <div class="minute1">
+                    <span>0</span>
+                </div>
+                <div class="minute2">
+                    <span>0</span>
+                </div>
+            </section>
+            <section class="second">
+                <div class="second1">
+                    <span>0</span>
+                </div>
+                <div class="second2">
+                    <span>0</span>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+<script>
+    function showTime(element,i) {
+        //获取第一个span元素
+        var firstspan=element.getElementsByTagName('span')[0];
+        //判断是否第一个span是否等于i的值
+        if (firstspan.innerText!==i) {
+            //不等于则创建一个新的span元素
+            var newspan=document.createElement('span');
+            //在把i的值赋值给新元素span
+            newspan.innerText=i;
+            //把它放在最后一位
+            element.appendChild(newspan);
+            //后面的替换前面的数字
+            firstspan.style.marginTop="-81px"
+            //定时器消除第一个
+            setTimeout(function () {
+                element.removeChild(firstspan);
+            }, 300);
+        }
+    }
+    //定时器刷新
+    setInterval(function(){
+        //获取总时间,然后获取时分秒,补足两位数
+        var newTime=new Date();
+        var h=String(newTime.getHours()).padStart(2,'0');
+        var m=String(newTime.getMinutes()).padStart(2,'0');
+        var s=String(newTime.getSeconds()).padStart(2,'0');
+        //获取装时间的盒子
+        var hb=document.querySelector('.hour')
+        var mb=document.querySelector('.minute')
+        var sb=document.querySelector('.second')
+        //把时间装到盒子里,然后通过遍历进行更新
+        hb.querySelectorAll('div').forEach(function (e,i) {
+            showTime(e,h[i])
+        })
+        mb.querySelectorAll('div').forEach(function (e,i) {
+            showTime(e,m[i])
+        })
+        sb.querySelectorAll('div').forEach(function (e,i) {
+            showTime(e,s[i])
+        })
+    }, 1000);
+</script>
+</html>

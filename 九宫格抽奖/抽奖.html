@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-top: 100px;
+            width: 400px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .aa {
+            background: rgb(78, 78, 78);
+        }
+
+        .start {
+            background-color: orange;
+        }
+
+        div>span {
+            float: left;
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            background: rgb(22, 186, 236);
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        div span:nth-child(4){
+            position: relative;
+            left: 220px;
+        }
+        div span:nth-child(6){
+            position: relative;
+            top: 109px;
+        }
+        div span:nth-child(7){
+            position: relative;
+            left: 113px;
+        }
+        div span:nth-child(8){
+            position: relative;
+            left: -106px;
+        }
+        div span:nth-child(9){
+            position: relative;
+            top: -110px;
+            left: -218px;
+        }
+        .text{
+            position: absolute;
+		left: 13%;
+		transform: translateX(-50%);
+		top: 10px;
+		display: block;
+		width: 320px;
+		height: 40px;
+		background-color: rgb(255, 255, 255);
+		border-radius: 2px;
+		box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px 2px;
+		letter-spacing: 2px;
+		text-align: center;
+		line-height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class='text'></p>
+    <div>
+        <span class="aa prize">电视</span>
+        <span class="prize">冰箱</span>
+        <span class="prize">空调</span>
+        <span class="prize">电视</span>
+        <span class="start">电脑</span>
+        <span class="prize">车</span>
+        <span class="prize"> 谢谢惠顾</span>
+        <span class="prize">再来一次</span>
+        <span class="prize">￣□￣｜｜</span>
+    </div>
+    <script>
+        var st = document.querySelector('.start');
+        var sp = document.querySelectorAll('.prize');
+        var text=document.querySelector('.text')
+        function start() {
+            sp.forEach(function (e, index) {
+                if (index != 0) {
+                    e.classList.remove('aa');
+                }
+            });
+            var num = -1;
+            var time = 100;
+            var  times = parseInt(Math.random() * (30 - 10 + 1) + 10);
+            var spin = 0;
+            st.onclick = null;
+             time = setInterval(function () {
+                num++;
+                spin++;
+                if (num > 7) {
+                    num = 0;
+                    sp[0].classList.add('aa');
+                    sp[7].classList.remove('aa');
+                } else if (num == 0) {
+                    sp[num].classList.add('aa');
+                    sp[7].classList.remove('aa');
+                } else {
+                    sp[num].classList.add('aa');
+                    sp[num - 1].classList.remove('aa');
+                }
+                if (spin > times) {
+                    clearInterval(time);
+                    st.onclick = start;
+                    st.style.cursor = "pointer";
+                    text.textContent='恭喜您抽中了'+document.querySelector('.aa').textContent+'!';
+                }
+            }, time);
+        }
+        st.onclick = start;
+    </script>
+</body>
+
+</html>
